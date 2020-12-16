@@ -1,0 +1,19 @@
+.Header {
+  background-color: lightblue;
+  padding: 16px 24px;
+}
+
+.Header h1 {
+  color: white;
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.Header h1::first-letter,
+.last-letter {
+  font-size: 60px;
+  color: black;
+  font-style: italic;
+}
