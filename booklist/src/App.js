@@ -3,28 +3,29 @@ import "./App.css";
 import Header from "./components/Header";
 import BookList from "./components/BookList";
 import Shelf from "./components/Shelf";
+import SearchBar from "./components/SearchBar";
 import data from "./data";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      books: data,
+      books: [...data],
       shelf: [],
     };
+
     this.addToShelf = this.addToShelf.bind(this);
-    this.clearShelf = this.clearShelf.bind(this);
   }
 
   addToShelf() {
-    this.setState({
-      shelf: [...this.state.shelf, this.state.books.title],
-    });
-  }
+    let bookName = this.state.books;
+    let bookTitles = [];
+    for (let i = 0; i < bookName.length; i++) {
+      bookTitles.push(bookName[i].title);
+    }
 
-  clearShelf() {
     this.setState({
-      shelf: [],
+      shelf: bookTitles,
     });
   }
 
@@ -32,9 +33,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div className="Container">
-          <BookList books={this.state.books} add={this.addToShelf} />
-          <Shelf shelf={this.state.shelf} clear={this.clearShelf} />
+        <SearchBar />
+        <div className="container">
+          <BookList books={this.state.books} addShelfFn={this.addShelf} />
+          <Shelf shelf={this.state.shelf} />
         </div>
       </div>
     );

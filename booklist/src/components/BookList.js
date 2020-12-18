@@ -1,20 +1,25 @@
 import React from "react";
+import "./BookList.css";
 
-export default function BookList(props) {
-  let mappedBooks = props.books.map((e, i) => {
-    return (
-      <div key={i}>
-        <img src={e.img} alt={e.title} onClick={() => props.add} />
-        <p>{e.title}</p>
-        <p>{e.author}</p>
-      </div>
-    );
-  });
-
+function BookList(props) {
+  const mappedBooks = props.books.map((e, i) => (
+    <div key={i}>
+      <img
+        index={i}
+        src={e.img}
+        alt={e.title}
+        onClick={() => props.addShelfFn}
+      />
+      <p>{e.title}</p>
+      <p>{e.author}</p>
+    </div>
+  ));
   return (
-    <div>
-      <h1>list</h1>
+    <div className="Booklist">
+      <h1>booklist</h1>
       {mappedBooks}
     </div>
   );
 }
+
+export default BookList;

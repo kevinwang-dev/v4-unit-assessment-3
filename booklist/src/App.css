@@ -37,7 +37,7 @@
   }
 }
 
-.Container {
+.container {
   display: flex;
   justify-content: space-around;
 }

@@ -1,18 +1,19 @@
 import React from "react";
+import "./Shelf.css";
 
-export default function Shelf(props) {
+function Shelf(props) {
+  console.log(props);
   let mappedTitles = props.shelf.map((e, i) => {
-    return (
-      <div key={i}>
-        <p>Title : {e.title}</p>
-      </div>
-    );
+    <div key={i}>
+      <p>{e}</p>
+    </div>;
   });
   return (
-    <div>
+    <div className="Shelf">
       <h1>shelf</h1>
       {mappedTitles}
-      <button onClick={() => props.clear}>Clear Shelf</button>
     </div>
   );
 }
+
+export default Shelf;

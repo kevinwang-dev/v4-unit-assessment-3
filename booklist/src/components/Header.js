@@ -1,12 +1,11 @@
 import React from "react";
-import "./Header.css";
 
-export default function Header() {
+function Header() {
   return (
-    <div className="Header">
-      <h1 className="Header-title">
-        bookis<span className="last-letter">t</span>
-      </h1>
+    <div>
+      <h1>bookist</h1>
     </div>
   );
 }
+
+export default Header;

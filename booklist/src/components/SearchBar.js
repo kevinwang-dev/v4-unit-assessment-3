@@ -8,20 +8,17 @@ class SearchBar extends Component {
     };
   }
 
-  //   handle change function
   handleChange(e) {
     this.setState({
       userInput: e.target.value,
     });
   }
 
-  //handle click function
-  handleClick() {}
-
   render() {
     return (
-      <div className="SearchBar">
-        <input type="text" />
+      <div>
+        Searchbar
+        <input type="text" onChange={(e) => this.handleChange(e)} />
         <button>Search</button>
         <button>Clear</button>
       </div>
