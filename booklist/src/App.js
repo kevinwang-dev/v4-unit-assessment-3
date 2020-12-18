@@ -15,6 +15,8 @@ class App extends Component {
     };
 
     this.addToShelf = this.addToShelf.bind(this);
+    this.clearShelf = this.clearShelf.bind(this);
+    this.filterBooks = this.filterBooks.bind(this);
   }
 
   addToShelf() {
@@ -29,14 +31,29 @@ class App extends Component {
     });
   }
 
+  clearShelf() {
+    this.setState({
+      shelf: [],
+    });
+  }
+
+  filterBooks(input) {
+    let filteredBook = this.state.books.filter((e, i) => {
+      return e.title.includes(input) || e.author.includes(input);
+    });
+    this.setState({
+      books: filteredBook,
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <SearchBar />
+        <SearchBar filter={this.filterBooks} />
         <div className="container">
-          <BookList books={this.state.books} addShelfFn={this.addShelf} />
-          <Shelf shelf={this.state.shelf} />
+          <BookList books={this.state.books} addShelfFn={this.addToShelf} />
+          <Shelf shelf={this.state.shelf} clearFn={this.clearShelf} />
         </div>
       </div>
     );

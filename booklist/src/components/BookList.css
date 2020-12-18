@@ -3,4 +3,16 @@
   width: 60%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.BookList img {
+  width: 250px;
+  margin: 10px;
+  border: 1px solid aqua;
+  cursor: pointer;
+}
+
+.BookList img:hover {
+  filter: grayscale(80%);
 }

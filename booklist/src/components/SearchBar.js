@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./SearchBar.css";
 class SearchBar extends Component {
   constructor() {
     super();
@@ -14,13 +14,29 @@ class SearchBar extends Component {
     });
   }
 
+  handleClick() {
+    this.props.filter(this.state.userInput);
+  }
+
+  handleClear() {
+    this.setState({
+      userInput: "",
+    });
+  }
+
   render() {
     return (
-      <div>
-        Searchbar
-        <input type="text" onChange={(e) => this.handleChange(e)} />
-        <button>Search</button>
-        <button>Clear</button>
+      <div className="SearchBar">
+        <div className="SearchBar-input">
+          <input
+            type="text"
+            onChange={(e) => this.handleChange(e)}
+            placeholder="enter book title"
+            value={this.state.userInput}
+          />
+          <button onClick={() => this.handleClick()}>Search</button>
+          <button>Clear</button>
+        </div>
       </div>
     );
   }

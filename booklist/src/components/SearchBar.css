@@ -1,0 +1,25 @@
+.SearchBar {
+  margin-top: 20px;
+}
+
+.SearchBar input {
+  font-size: 30px;
+  border-radius: 20px;
+  margin: 0 10px;
+  outline: none;
+}
+
+.SearchBar button {
+  font-family: inherit;
+  margin: 10px;
+  padding: 10px 36px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+}
+.SearchBar button:hover {
+  background-color: orange;
+  color: white;
+}

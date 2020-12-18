@@ -1,0 +1,12 @@
+.Header {
+  background-color: lightblue;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+  letter-spacing: 8px;
+  font-style: italic;
+  font-size: 50px;
+  border-style: ridge;
+}
