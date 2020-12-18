@@ -14,12 +14,7 @@ function BookList(props) {
       <p>{e.author}</p>
     </div>
   ));
-  return (
-    <div className="Booklist">
-      <h1>booklist</h1>
-      {mappedBooks}
-    </div>
-  );
+  return <div className="BookList">{mappedBooks}</div>;
 }
 
 export default BookList;

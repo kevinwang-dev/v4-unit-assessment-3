@@ -1,3 +1,6 @@
 .BookList {
+  border: 2px solid pink;
   width: 60%;
+  display: flex;
+  flex-wrap: wrap;
 }
