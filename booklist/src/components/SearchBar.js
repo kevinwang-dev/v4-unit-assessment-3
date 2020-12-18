@@ -22,6 +22,7 @@ class SearchBar extends Component {
     this.setState({
       userInput: "",
     });
+    this.props.reset();
   }
 
   render() {
@@ -35,7 +36,8 @@ class SearchBar extends Component {
             value={this.state.userInput}
           />
           <button onClick={() => this.handleClick()}>Search</button>
-          <button>Clear</button>
+          {/* the aboce van be wrtti as this.handleClick, if you dont need to pass arguments */}
+          <button onClick={() => this.handleClear()}>Clear</button>
         </div>
       </div>
     );

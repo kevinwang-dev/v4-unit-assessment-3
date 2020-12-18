@@ -17,14 +17,15 @@ class App extends Component {
     this.addToShelf = this.addToShelf.bind(this);
     this.clearShelf = this.clearShelf.bind(this);
     this.filterBooks = this.filterBooks.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
-  addToShelf() {
+  addToShelf(index) {
     let bookName = this.state.books;
-    let bookTitles = [];
-    for (let i = 0; i < bookName.length; i++) {
-      bookTitles.push(bookName[i].title);
-    }
+    let bookTitles = this.state.shelf;
+    // for (let i = 0; i < bookName.length; i++) {
+    bookTitles.push(bookName[index].title);
+    // }
 
     this.setState({
       shelf: bookTitles,
@@ -37,10 +38,25 @@ class App extends Component {
     });
   }
 
-  filterBooks(input) {
-    let filteredBook = this.state.books.filter((e, i) => {
-      return e.title.includes(input) || e.author.includes(input);
+  reset() {
+    this.setState({
+      books: data,
     });
+  }
+
+  filterBooks(input) {
+    let books = this.state.books;
+    let filteredBook = [];
+
+    for (let i = 0; i < books.length; i++) {
+      if (
+        books[i].title.toLowerCase().includes(input.toLowerCase()) ||
+        books[i].author.toLowerCase().includes(input.toLowerCase())
+      ) {
+        filteredBook.push(books[i]);
+      }
+    }
+
     this.setState({
       books: filteredBook,
     });
@@ -50,7 +66,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <SearchBar filter={this.filterBooks} />
+        <SearchBar filter={this.filterBooks} reset={this.reset} />
         <div className="container">
           <BookList books={this.state.books} addShelfFn={this.addToShelf} />
           <Shelf shelf={this.state.shelf} clearFn={this.clearShelf} />

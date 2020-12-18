@@ -3,7 +3,11 @@ import "./Shelf.css";
 
 function Shelf(props) {
   let mappedTitles = props.shelf.map((e, i) => {
-    return <p key={i}>{e}</p>;
+    return (
+      <p className="book-title" key={i}>
+        {e}
+      </p>
+    );
   });
 
   return (
